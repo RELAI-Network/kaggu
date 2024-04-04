@@ -16,6 +16,12 @@ class BooksPage extends ConsumerWidget {
       return const LoadingScreenView();
     }
 
-    return BooksView(books: books.value);
+    return BooksView(
+      books: books.value,
+      onRefresh: () async {
+        // ignore: unused_result
+        ref.refresh(booksProvider);
+      },
+    );
   }
 }

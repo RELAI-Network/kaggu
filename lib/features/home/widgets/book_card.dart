@@ -25,77 +25,72 @@ class BookCard extends StatelessWidget {
           await context.pushTo(PdfViewerView(pdfFile: File(data.filePath)));
         }
       },
-      child: SizedBox(
-        width: 100,
-        height: 200,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Material(
-              elevation: 10,
-              borderOnForeground: false,
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.transparent,
-              child: Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                ),
-                width: 100,
-                height: 170,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: image == null
-                      ? data.coverImagePath == null
-                          ? Image.asset(
-                              'assets/ebook.jpg',
-                              fit: BoxFit.fill,
-                            )
-                          : Image.file(
-                              File(data.coverImagePath!),
-                              fit: BoxFit.fill,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Image.asset(
-                                  'assets/ebook.jpg',
-                                  fit: BoxFit.fill,
-                                );
-                              },
-                            )
-                      : Image(
-                          image: image!,
-                          fit: BoxFit.fill,
-                        ),
-                ),
-              ),
-            ),
-            if (data.author != null)
-              Padding(
-                padding: const EdgeInsets.all(1),
-                child: Text(
-                  data.author!,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    color: Colors.grey[600],
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          // Material(
+          //   elevation: 10,
+          //   borderOnForeground: false,
+          //   borderRadius: BorderRadius.circular(10),
+          //   color: Colors.transparent,
+          //   child: Container(
+          //     decoration: const BoxDecoration(
+          //       borderRadius: BorderRadius.all(
+          //         Radius.circular(10),
+          //       ),
+          //     ),
+          //     width: 100,
+          //     height: 170,
+          //     child: ClipRRect(
+          //       borderRadius: BorderRadius.circular(10),
+          //       child: image == null
+          //           ? data.coverImagePath == null
+          //               ? Image.asset(
+          //                   'assets/ebook.jpg',
+          //                   fit: BoxFit.fill,
+          //                 )
+          //               : Image.file(
+          //                   File(data.coverImagePath!),
+          //                   fit: BoxFit.fill,
+          //                   errorBuilder: (context, error, stackTrace) {
+          //                     return Image.asset(
+          //                       'assets/ebook.jpg',
+          //                       fit: BoxFit.fill,
+          //                     );
+          //                   },
+          //                 )
+          //           : Image(
+          //               image: image!,
+          //               fit: BoxFit.fill,
+          //             ),
+          //     ),
+          //   ),
+          // ),
+          if (data.author != null)
             Padding(
               padding: const EdgeInsets.all(1),
               child: Text(
-                data.title,
-                style: context.textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
+                data.author!,
+                style: context.textTheme.bodyMedium?.copyWith(
+                  color: Colors.grey[600],
                 ),
-                maxLines: 2,
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-          ],
-        ),
+          Padding(
+            padding: const EdgeInsets.all(1),
+            child: Text(
+              data.title,
+              style: context.textTheme.titleSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
       ),
     );
   }
