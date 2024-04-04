@@ -1,4 +1,4 @@
-package com.example.kaggu
+package com.futurstore.kaggu
 
 import io.flutter.embedding.android.FlutterActivity
 

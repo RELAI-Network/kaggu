@@ -26,5 +26,18 @@
         "titleBar.inactiveBackground": "#bcd34699",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#bcd346"
+    "peacock.color": "#bcd346",
+    "cSpell.words": [
+        "arabic",
+        "chinese",
+        "epub",
+        "epubx",
+        "firestore",
+        "isbn",
+        "italian",
+        "kaggu",
+        "russian",
+        "spanish",
+        "theming"
+    ]
 }

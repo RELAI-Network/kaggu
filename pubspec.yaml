@@ -1,33 +1,40 @@
 name: kaggu
-description: "A new Flutter project."
-
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+description: "An ebook reader app"
+publish_to: 'none'
 
 version: 1.0.0+1
-
 environment:
   sdk: '>=3.2.6 <4.0.0'
 
-
 dependencies:
+  austerity: ^1.2.0
+  cupertino_icons: ^1.0.2
+  dart_utils:
+    git: https://github.com/bienvenuelisis/dart_utils.git
+  epub_view: ^3.2.0
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.2
-  epub_view: ^3.2.0
+  flutter_riverpod: ^2.5.1
+  intl: ^0.19.0
+  local_storage:
+    path: packages/local_storage
+  pdfx: ^2.6.0
   receive_sharing_intent: ^1.6.7
+  riverpod_annotation: ^2.3.4
 
 dev_dependencies:
+  build_runner: ^2.4.8
+  change_app_package_name: ^1.1.0
+  custom_lint: ^0.6.2
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-
-
-  flutter_lints: ^2.0.0
-
+  riverpod_generator: ^2.3.11
+  riverpod_lint: ^2.3.9
 
 flutter:
   assets:
     - assets/
+  
   uses-material-design: true
-
+  generate: true
