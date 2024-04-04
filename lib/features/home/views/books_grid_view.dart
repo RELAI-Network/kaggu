@@ -1,4 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:kaggu/core/extensions/navigator.dart';
+import 'package:kaggu/features/readers/views/epub_viewer_view.dart';
+import 'package:kaggu/features/readers/views/pdf_viewer_view.dart';
 
 import '../models/local_book_model.dart';
 
@@ -42,6 +47,19 @@ class _BooksGridViewState extends State<BooksGridView> {
                     .map(
                       (e) => Card(
                         child: ListTile(
+                          onTap: () async {
+                            if (e.type == BookType.epub) {
+                              await context.pushTo(
+                                EpubViewerView(
+                                  epubFile: File(e.filePath),
+                                ),
+                              );
+                            } else if (e.type == BookType.pdf) {
+                              await context.pushTo(
+                                PdfViewerView(pdfFile: File(e.filePath)),
+                              );
+                            }
+                          },
                           leading: DecoratedBox(
                             decoration: const BoxDecoration(
                               borderRadius: BorderRadius.all(
