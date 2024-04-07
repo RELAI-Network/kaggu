@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Home Page'),
+          title: const Text('KAGGU'),
         ),
         body: const Padding(
           padding: EdgeInsets.symmetric(
